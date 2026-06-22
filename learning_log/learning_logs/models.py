@@ -17,8 +17,11 @@ class Entry(models.Model):
     date_added = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        verbose_name_plural = 'entries'
+        verbose_name_plural = "entries"
         # Просто для того, чтобы множественное число экземпляров джанго читал как 'entries'
 
     def __str__(self):
-        return f"{self.text[:50]}..."
+        if len(self.text) > 50:
+            return f"{self.text[:50]}..."
+        else:
+            return self.text
