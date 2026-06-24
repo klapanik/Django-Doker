@@ -10,11 +10,11 @@
         {% block content %}
         <p>All topics will be here</p>
         <ul>
-            { % for topic in topics % }
-            <li>{{topic}}</li>
-            { % empty % }
+            {% for topic in topics %}
+            <li>{{ topic }}</li>
+            {% empty %}
             <li>No topics have been added yet</li>
-            { % endfor % }
+            {% endfor %}
         </ul>
         {% endblock content %}
     </body>
