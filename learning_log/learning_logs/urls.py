@@ -5,4 +5,5 @@ app_name = "learning_logs"  # Чтобы django отличал этот файл
 urlpatterns = [  # список страниц, которые можно запрашивать из приложения learning_logs (например)
     path("", views.index, name="index"), # path('url', функция, имя index чтобы корректно на неё ссылаться)
     path("topics/", views.topics, name="topics"),
+    path("topics/<int:topic_id>/", views.topic, name="topic"),
 ]

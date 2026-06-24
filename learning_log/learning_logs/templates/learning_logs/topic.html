@@ -4,18 +4,20 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Topics</title>
+        <title>Document</title>
     </head>
     <body>
         {% block content %}
-        <p>All topics will be here</p>
+        <p>Topic: {{ topic }}</p>
+        <p>Entries:</p>
         <ul>
-            {% for topic in topics %}
+            {% for entry in entries %}
             <li>
-                <a href="{% url 'learning_logs:topic' topic.id %}">{{ topic }}</a>
+                <p>{{ entry.date_added|date:'M d, Y H:i' }}</p>
+                <p>{{ entry.text|linebreaks }}</p>
             </li>
             {% empty %}
-            <li>No topics have been added yet</li>
+            <li>There are no entries for this ropic yet.</li>
             {% endfor %}
         </ul>
         {% endblock content %}
