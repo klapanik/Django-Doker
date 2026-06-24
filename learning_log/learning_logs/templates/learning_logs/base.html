@@ -8,6 +8,7 @@
     <body>
         <p>
             <a href="{% url 'learning_logs:index' %}">Learning log</a> 
+            <a href="{% url 'learning_logs:topics' %}">Topics</a> 
             <!-- в href ссылка на шаблон, чтобы он динамически менялся -->
         </p>
         {% block content %}{% endblock content %}
