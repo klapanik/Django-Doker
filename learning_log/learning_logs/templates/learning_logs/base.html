@@ -7,9 +7,12 @@
     </head>
     <body>
         <p>
-            <a href="{% url 'learning_logs:index' %}">Learning log</a> 
-            <a href="{% url 'learning_logs:topics' %}">Topics</a> 
+            <a href="{% url 'learning_logs:index' %}">Learning log</a>
+            <span>|</span>
+            <a href="{% url 'learning_logs:topics' %}">Topics</a>
             <!-- в href ссылка на шаблон, чтобы он динамически менялся -->
+            <span>|</span>
+            <a href="{% url 'learning_logs:new_topic' %}">Add new topic</a>
         </p>
         {% block content %}{% endblock content %}
     </body>
