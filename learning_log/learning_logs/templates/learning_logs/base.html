@@ -13,10 +13,14 @@
             <!-- в href ссылка на шаблон, чтобы он динамически менялся -->
             <span>|</span>
             <a href="{% url 'learning_logs:new_topic' %}">Add new topic</a>
-            <span>|</span>
             {% if user.is_authenticated %}
-            <p>Hello, {{ user.username }}</p>
+            <span>Hello, {{ user.username }}</span>
+            <form action="{% url 'users:logout' %}" method="post">
+                {% csrf_token %}
+                <button type="submit">log out</button>
+            </form>
             {% else %}
+            <span>|</span>
             <a href="{% url 'users:login' %}">Login</a>
             {% endif %}
         </p>
