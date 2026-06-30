@@ -22,6 +22,8 @@
             {% else %}
             <span>|</span>
             <a href="{% url 'users:login' %}">Login</a>
+            <span>|</span>
+            <a href="{% url 'users:register' %}">Registration</a>
             {% endif %}
         </p>
         {% block content %}{% endblock content %}
