@@ -36,7 +36,9 @@ def new_topic(request):
     else:
         form = TopicForm(data=request.POST)
         if form.is_valid():
-            form.save()  # записывает данные о форме в базу данных
+            new_topic = form.save(commit=False)  # записывает данные о форме в базу данных
+            new_topic.owner = request.user
+            new_topic.save()
             return redirect("learning_logs:topics")
 
     context = {"form": form}
